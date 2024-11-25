@@ -1,0 +1,52 @@
+# Dependencias de Node.js
+node_modules/
+
+# Archivos de entorno
+.env
+
+# Archivos generados por el build
+dist/
+build/
+
+# Archivos de caché de paquetes
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos específicos de sistemas operativos
+.DS_Store          # macOS
+Thumbs.db          # Windows
+Desktop.ini        # Windows
+
+# Configuración de editores y entornos
+.vscode/           # Visual Studio Code
+.idea/             # WebStorm/IntelliJ
+*.swp              # Archivos temporales de Vim
+*.sublime-workspace
+
+# Directorios de frameworks (opcional, ajusta según tu stack)
+.next/             # Next.js
+.nuxt/             # Nuxt.js
+out/               # Next.js (static export)
+parcel-cache/      # Parcel
+.pnp/              # Yarn Plug'n'Play
+
+# Archivos temporales
+*.tmp
+*.temp
+
+# Archivos de configuración local
+*.local
+.env.local
+.env.*.local
+
+# Cachés y salidas del testing
+coverage/
+*.coverage
+.nyc_output/
+
+# Salidas de TypeScript (si aplica)
+*.tsbuildinfo
+
+# Otros directorios o archivos personalizados
