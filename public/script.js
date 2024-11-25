@@ -42,13 +42,13 @@ function calculatePercentage() {
         
         //document.getElementById("result").innerText = `${amount} autos, ${percentage.toFixed(2)}% de ocupación.`;
         document.getElementById("ent").innerText = `Entrada: ${entrada}.`;
-        document.getElementById("sal").innerText = `Salida: ${salida}.`;
+        //document.getElementById("sal").innerText = `Salida: ${salida}.`;
         if (ajuste != 0)
             {
-                document.getElementById("ajt").innerText = `Ajuste: -${ajuste}.`;
-                document.getElementById("ajt1").innerText = `Salida c/ajuste: ${salida-ajuste}.`;   
+                //document.getElementById("ajt").innerText = `Ajuste: -${ajuste}.`;
+                document.getElementById("ajt1").innerText = `Salida: ${salida-ajuste}.`;   
             }
-        document.getElementById("result").innerText = `${amount} Autos.`;
+        document.getElementById("result").innerText = `Autos en sitio: ${amount}`;
         document.getElementById("result1").innerText = `${percentage.toFixed(2)}% Ocupación`;
         mostrarHora();
     
