@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,8 +18,9 @@
      </div>
     </div>-->
     <header class="menu">
-        <a href="buscareg.html" target="_blank">Buscar</a>
-        <a href="http://localhost:3000/ver-registros" target="_blank">Registros</a>
+        <button id="ajuste-btn" class="button" onclick="openPopup('Popup2')">Ajuste</button>
+        <button id="show-records-btn" class="button" onclick="openPopup('Popup1')">Registros</button>
+        <button id="findreg">Buscar</button>
         <!--<a href="#about">About</a>
         <a href="#services">Services</a>
         <a href="#contact">Contact</a>-->
@@ -27,23 +29,32 @@
         <h1 id="proyecto"></h1>
     </div>
 
-    <div class="container2"><h2><p id="fechaHora"></p></h2></div>
+    <div class="container2">
+        <h2>
+            <p id="fechaHora"></p>
+        </h2>
+    </div>
     <div class="container">
-    <h2 id="tdes"></h2>
-    <form id="form1">
-        <label for="data"><p>Entrada:</p></label>
-        <input type="text" id="dataE" name="data" type="number" required>
-        <label for="data"><p>Salida:</p></label>
-        <input type="text" id="dataS" name="data" type="number" required>
-        <p>Ajuste:</p>
-        <input id="inputAjt" value="0">
-        <!--<button id="openPopup" onclick="calculatePercentage()">Calcular</button>-->
-        <!--<button type="submit" id="openPopup" onclick="calculatePercentage()">Calcular</button>-->
-    </form>
-        <button id="openPopup" onclick="calculatePercentage()"></button>
+        <h2 id="tdes"></h2>
+            <label for="data">
+                <p>Entrada:</p>
+            </label>
+            <input id="dataE" name="data" type="number" required>
+            <label for="data">
+                <p>Salida:</p>
+            </label>
+            <input id="dataS" name="data" type="number" required>
+            <div class="ajus">
+                <h3>Ajuste:  </h3>
+                <h3 id="ajuste"></h3>
+            </div> 
+            <!--<input id="inputAjt" value="0">-->
+            <!--<button id="openPopup" onclick="calculatePercentage()">Calcular</button>-->
+            <!--<button type="submit" id="openPopup" onclick="calculatePercentage()">Calcular</button>-->
+        <button id="openPopup" onclick="calculatePercentage()">Calcular</button>
     </div>
 
-    <!-- Popup -->
+    <!-- Popup  -->
     <div id="popup" class="popup">
         <div class="popup-content">
             <span id="closePopup" class="close">&times;</span>
@@ -57,12 +68,42 @@
                 <div id="result1" class="result"></div>
                 <div id="Hora" class="result"></div>
                 <form id="form">
-                    <button type="submit">Guardar</button>
+                    <button id="savereg" type="submit">Guardar</button>
                 </form>
-                
-        </div>
-    </div>
 
-    <script src="script.js"></script>
-</body>
+            </div>
+        </div>
+    </div>    
+
+        <div id="Popup1" class="popup1">
+            <h2>Registros del Día</h2>
+            <div id="records"></div>
+            <button class="close-btn" onclick="closePopup()">Cerrar</button>
+        </div>
+        <div id="overlay" class="overlay"></div>
+
+        <div id="Popup2" class="popup1">
+            <h2>Ajuste del Día</h2>
+            <div>
+                <form class="envall" id="dataForm">
+                    <label for="ajte">
+                        <p>Ajuste:</p>
+                    </label>
+                    <input class="ajtbox" id="ajte1" name="ajte" type="number" value="0">
+                    <button id="env" type="submit">Enviar</button> 
+                </form> 
+            </div>
+                <div class="btnenv">
+                 <button id="env2" class="close-btn" onclick="closePopup1()">Cerrar</button>
+                </div>
+                <p id="message"></p>
+                <div id="saveAjt"></div>
+            
+            
+        </div>
+        <div id="overlay" class="overlay"></div>
+
+        <script src="script.js"></script>
+</body> 
+
 </html>

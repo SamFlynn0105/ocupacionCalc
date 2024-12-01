@@ -1,7 +1,5 @@
 {
-    "proyecto": "Parque Tepeyac",
-    "tdes": "Calculadora de Ocupación",
-    "openPopup": "Calcular",
-    "tprin": "Buscar Registros por Fecha",
-    "btnf": "Buscar"
+  "tdes": "Calculadora de Ocupación",
+  "tprin": "Buscar Registros por Fecha",
+  "btnf": "Buscar"
 }
