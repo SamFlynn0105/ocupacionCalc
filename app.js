@@ -98,11 +98,12 @@ app.get("/ver-registros", (req, res) => {
 
 // Helper para formatear fechas
 function formatDate(dateStr) {
-  //const [day, month, year] = dateStr.split("/");
-  //return `${year}-${month}-${day}`; // Formato ISO para comparar
-  today2 = new Date().toLocaleDateString("es-ES");
-  console.log(today2);
-  return  today2;
+  const [day, month, year] = dateStr.split("/");
+  return `${year}-${month}-${day}`; // Formato ISO para comparar
+  //fecha1 = new Date(dateStr);
+  //fechaFormat1= fecha1.toLocaleDateString("es-ES");
+  //console.log("se ejecuta desde app: ",  fechaFormat1);
+  //return fechaFormat1;
 }
 
 app.get("/buscareg.html", (req, res) => {

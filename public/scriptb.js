@@ -9,6 +9,9 @@ async function filterData() {
   }
 
   const dateFormatted = formatDateForBackend(dateISO);
+  //const dateFormatted = dateISO.toLocaleDateString("es-ES");
+  console.log("este es iso:", dateISO);
+  console.log("este es el formateo local:", dateFormatted);
 
   try {
     const response = await fetch(`/filter?date=${dateFormatted}`);
@@ -61,7 +64,10 @@ async function filterData() {
 
 function formatDateForBackend(dateISO) {
   const [year, month, day] = dateISO.split("-");
-  return `${day}/${month}/${year}`; // Conversión a DD/MM/YYYY
+  fecha = new Date(`${month}/${day}/${year}`); // Conversión a DD/MM/YYYY
+  //fecha1 = new Date(fecha);
+  fechaFormat = fecha.toLocaleDateString("es-ES");
+  return fechaFormat;
 }
 
 // Función para cargar el archivo JSON

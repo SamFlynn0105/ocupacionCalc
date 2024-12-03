@@ -134,10 +134,7 @@ function mostrarHora() {
     hour: "2-digit",
     minute: "2-digit",
   };
-  document.getElementById("Hora").textContent = fecha2.toLocaleDateString(
-    "es-ES",
-    opciones1
-  );
+  document.getElementById("Hora").textContent = fecha2.toLocaleDateString("es-ES", opciones1);
 }
 //mostrarHora();
 
@@ -241,3 +238,5 @@ form.addEventListener('submit', async (e) => {
         message.textContent = 'Error al conectar con el servidor.';
     }
 });
+
+
