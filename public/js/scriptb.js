@@ -74,7 +74,7 @@ function formatDateForBackend(dateISO) {
 async function cargarContenido() {
   try {
     // Realiza la solicitud al archivo JSON
-    const respuesta = await fetch("contenido.json");
+    const respuesta = await fetch("json/contenido.json");
     const datos = await respuesta.json();
 
     // Asigna los datos a las etiquetas correspondientes

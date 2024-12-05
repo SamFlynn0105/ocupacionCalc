@@ -7,8 +7,6 @@ const app = express();
 const path = require("path");
 const csv = require("csv-parser");
 
-const DATA_FILE = path.join(__dirname, "public", 'configCaj.json');
-
 app.use(express.json());
 app.use(express.static("public"));
 
@@ -156,6 +154,8 @@ app.get("/registros", (req, res) => {
     });
 });
 
+
+const DATA_FILE = path.join(__dirname, "public", 'json/configCaj.json');
 
 // Ruta para guardar el dato en un archivo JSON
 app.post('/save-data', (req, res) => {

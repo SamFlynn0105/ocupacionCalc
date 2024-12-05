@@ -2,9 +2,9 @@
 async function cargarContenido() {
   try {
     // Realiza la solicitud al archivo JSON
-    const respuesta = await fetch("contenido.json");
-    const respuesta1 = await fetch("config.json");
-    const respuesta2 = await fetch("configCaj.json");
+    const respuesta = await fetch("json/contenido.json");
+    const respuesta1 = await fetch("json/config.json");
+    const respuesta2 = await fetch("json/configCaj.json");
     const datos = await respuesta.json();
     const datos1 = await respuesta1.json();
     const datos2 = await respuesta2.json();
