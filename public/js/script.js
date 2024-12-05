@@ -30,6 +30,7 @@ function recAjuste() {
   //document.getElementById("saveAtj").innerText = `Se envio ajuste.`;
 }*/
 
+/*//funcion de calculo porcentaje
 function calculatePercentage() {
   //const amount = parseFloat(docu ment.getElementById("inputAmount").value);
   entrada = parseFloat(document.getElementById("dataE").value);
@@ -38,7 +39,11 @@ function calculatePercentage() {
   calculo = entrada - (salida - ajuste);
   amount = Math.abs(calculo);
   //const total = 3516;
-
+   
+  if (salida > entrada){
+    document.getElementById("result123").innerText = "salida no puede ser mayor que entrada";
+  }
+   
   if (!isNaN(amount)) {
     percentage = (amount / total) * 100;
     if (percentage < 50) {
@@ -58,10 +63,63 @@ function calculatePercentage() {
     document.getElementById("result1").innerText = `${percentage.toFixed(2)}% Ocupación`;
     mostrarHora();
   } else {
-    document.getElementById("result").innerText =
-      "Por favor, ingresa un número válido.";
+    document.getElementById("result123").innerText = "Por favor, ingresa un número válido.";
+  }
+}*/
+
+function calculatePercentage() {
+  // Limpia mensajes anteriores
+  alertElement = document.getElementById("result123");
+  alertElement.innerText = "";
+  document.getElementById("ent").innerText = "";
+  document.getElementById("ajt1").innerText = "";
+  document.getElementById("result").innerText = "";
+  document.getElementById("result1").innerText = "";
+
+  // Obtén los valores de entrada y salida
+  entrada = parseFloat(document.getElementById("dataE").value);
+  salida = parseFloat(document.getElementById("dataS").value);
+  ajuste = ajtRec; // Define un valor por defecto si no existe
+  cajones = total;
+
+  // Valida los valores ingresados
+  if (isNaN(entrada) || isNaN(salida)) {
+    alertElement.innerText = "Por favor, ingresa números válidos.";
+    return;
+  }
+
+  if ((salida-ajuste) > entrada) {
+    alertElement.innerText = "La salida no puede ser mayor que la entrada.";
+    return;
+  }
+
+  calculo = entrada - (salida - ajuste);
+  amount = Math.abs(calculo);
+  //const total = 3516; // Asegúrate de definir el total correctamente
+  percentage = (amount / cajones) * 100;
+
+  // Aplica colores según el porcentaje
+  result1Element = document.getElementById("result1");
+  if (percentage < 50) {
+    result1Element.style.color = "green";
+  } else if (percentage >= 50 && percentage < 80) {
+    result1Element.style.color = "orange";
+  } else {
+    result1Element.style.color = "red";
+  }
+
+  // Actualiza los resultados en el HTML
+  document.getElementById("ent").innerText = `Entrada: ${entrada}.`;
+  document.getElementById("ajt1").innerText = `Salida: ${salida - ajuste}.`;
+  document.getElementById("result").innerText = `Autos en sitio: ${amount}`;
+  document.getElementById("result1").innerText = `${percentage.toFixed(2)}% Ocupación`;
+
+  // Opcional: muestra la hora si tienes una función mostrarHora
+  if (typeof mostrarHora === "function") {
+    mostrarHora();
   }
 }
+
 
 document.getElementById("form").addEventListener("submit", async (e) => {
   e.preventDefault();
