@@ -23,49 +23,6 @@ async function cargarContenido() {
 // Llama a la función al cargar la página
 cargarContenido();
 
-/*ajtRec = 0;
-function recAjuste() {
-  ajtRec = parseFloat(document.getElementById("ajte1").value);
-  console.log(ajtRec);
-  //document.getElementById("saveAtj").innerText = `Se envio ajuste.`;
-}*/
-
-/*//funcion de calculo porcentaje
-function calculatePercentage() {
-  //const amount = parseFloat(docu ment.getElementById("inputAmount").value);
-  entrada = parseFloat(document.getElementById("dataE").value);
-  salida = parseFloat(document.getElementById("dataS").value);
-  ajuste = ajtRec;
-  calculo = entrada - (salida - ajuste);
-  amount = Math.abs(calculo);
-  //const total = 3516;
-   
-  if (salida > entrada){
-    document.getElementById("result123").innerText = "salida no puede ser mayor que entrada";
-  }
-   
-  if (!isNaN(amount)) {
-    percentage = (amount / total) * 100;
-    if (percentage < 50) {
-      document.getElementById("result1").style.color = "green";
-    } else if (percentage > 50 && percentage < 80) {
-      document.getElementById("result1").style.color = "orange";
-    } else if (percentage > 80) {
-      document.getElementById("result1").style.color = "red";
-    }
-
-    //document.getElementById("result").innerText = `${amount} autos, ${percentage.toFixed(2)}% de ocupación.`;
-    document.getElementById("ent").innerText = `Entrada: ${entrada}.`;
-    //document.getElementById("sal").innerText = `Salida: ${salida}.`;
-    //document.getElementById("ajt").innerText = `Ajuste: -${ajuste}.`;
-    document.getElementById("ajt1").innerText = `Salida: ${salida - ajuste}.`;
-    document.getElementById("result").innerText = `Autos en sitio: ${amount}`;
-    document.getElementById("result1").innerText = `${percentage.toFixed(2)}% Ocupación`;
-    mostrarHora();
-  } else {
-    document.getElementById("result123").innerText = "Por favor, ingresa un número válido.";
-  }
-}*/
 
 function calculatePercentage() {
   // Limpia mensajes anteriores
