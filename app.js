@@ -1,6 +1,6 @@
 const express = require("express");
 const fs = require("fs");
-const { v4: uuidv4 } = require("uuid"); // Necesitas instalar este módulo con `npm install uuid`
+//const { v4: uuidv4 } = require("uuid"); // Necesitas instalar este módulo con `npm install uuid`
 const app = express();
 
 //librerias para buscar
@@ -32,67 +32,6 @@ app.post("/guardar", (req, res) => {
     res.send("Registro guardado con éxito");
   });
 });
-
-/*// Nueva ruta para ver los registros
-app.get("/ver-registros", (req, res) => {
-    fs.readFile("registro.csv", "utf8", (err, data) => {
-        if (err) {
-            console.error("Error al leer el archivo:", err);
-            return res.status(500).send("Error al leer los registros");
-        }
-
-        // Convierte el contenido a HTML básico
-        const registrosHtml = data.split("\n").map(line => `<p>${line}</p>`).join(" ");
-        res.send(`
-            <html>
-                <head>
-                 <title>Registros Guardados</title>
-                 </head>
-                <body>
-                    <h2>Lista de Registros</h2>
-                    ${registrosHtml || "<p>No hay registros aún.</p>"}
-                    <br>
-                    <a href="">Actualizar</a>
-                </body>
-            </html>
-        `);
-    });
-});*/
-
-// Ruta para ver los registros del día actual
-/*app.get("/ver-registros", (req, res) => {
-  const hoy = new Date().toLocaleDateString("es-ES"); // Fecha actual en formato YYYY-MM-DD
-
-  fs.readFile("registro.csv", "utf8", (err, data) => {
-    if (err) {
-      console.error("Error al leer el archivo:", err);
-      return res.status(500).send("Error al leer los registros");
-    }
-
-   // Filtrar registros por la fecha actual
-    const registrosDelDia = data
-      .split("\n") // Separar las líneas
-      .filter((line) => line.includes(hoy)) // Filtrar las líneas que contienen la fecha actual
-      .map((line) => `<p>${line}</p>`) // Convertir a HTML
-      .join("");
-
-    res.send(`
-            <html>
-                <head><title>Registros de Hoy</title></head>
-                <body>
-                    <h2>Registros del Día (${hoy})</h2>
-                    <p>Fecha, Hora, Entrada, Salida, Autos, Porcentaje</p>
-                    ${
-                      registrosDelDia ||
-                      "<p>No hay registros para el día de hoy.</p>"
-                    }
-                    <br>
-                    <a href="">Actualizar</a><br>
-                </body>
-            </html>
-        `);
-  });
-});*/
 
 // Helper para formatear fechas
 function formatDate(dateStr) {
