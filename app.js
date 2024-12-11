@@ -105,7 +105,7 @@ app.post('/save-data', (req, res) => {
     }
 
     // Guardar el dato en un archivo JSON
-    const data = { value, updatedAt: new Date().toISOString() };
+    const data = { value, updatedAt: new Date().toLocaleDateString("es-ES"), updateTime: new Date().toLocaleTimeString("es-ES") };
     fs.writeFile(DATA_FILE, JSON.stringify(data, null, 2), (err) => {
         if (err) {
             console.error('Error al guardar el archivo:', err);
@@ -124,6 +124,11 @@ app.get('/get-data', (req, res) => {
         }
         res.json(JSON.parse(data));
     });
+});
+
+//indexar acercade
+app.get("/acercade.html", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "acercade.html"));
 });
 
 // Iniciar el servidor

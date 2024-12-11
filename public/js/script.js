@@ -5,6 +5,7 @@ async function cargarContenido() {
     const respuesta = await fetch("json/contenido.json");
     const respuesta1 = await fetch("json/config.json");
     const respuesta2 = await fetch("json/configCaj.json");
+  
     const datos = await respuesta.json();
     const datos1 = await respuesta1.json();
     const datos2 = await respuesta2.json();
@@ -47,6 +48,11 @@ function calculatePercentage() {
 
   if ((salida-ajuste) > entrada) {
     alertElement.innerText = "La salida no puede ser mayor que la entrada.";
+    return;
+  }
+
+  if ((salida-ajuste) < 0) {
+    alertElement.innerText = "No es posible con salida negativa.";
     return;
   }
 
@@ -153,17 +159,6 @@ function mostrarHora() {
 }
 //mostrarHora();
 
-/* document.getElementById('show-records-btn').addEventListener('click', function() {
-    const url = "http://localhost:3000/ver-registros";
-    const width = 600; // Ancho del popup
-    const height = 400; // Alto del popup
-    const left = (window.screen.width / 2) - (width / 2);
-    const top = (window.screen.height / 2) - (height / 2);
-
-    // Abre el popup centrado
-    window.open(url, "Popup", `width=${width},height=${height},top=${top},left=${left},resizable=yes`);
-});*/
-
 document.getElementById("findreg").addEventListener("click", function () {
   const url = "http://localhost:3000/buscareg.html";
   const width = 800; // Ancho del popup
@@ -252,6 +247,27 @@ form.addEventListener('submit', async (e) => {
         console.error('Error:', error);
         message.textContent = 'Error al conectar con el servidor.';
     }
+});
+
+//script bannner navideño
+document.addEventListener("DOMContentLoaded", () => {
+  const message = document.getElementById("holiday-message");
+
+  const today = new Date();
+  const month = today.getMonth() + 1; // Mes (0-11)
+  const day = today.getDate();
+
+  if (month === 12 || month === 1) {
+      if (month === 12 && day === 25) {
+          message.textContent = "🎄 ¡Feliz Navidad! 🎅";
+      } else if (month === 1 && day === 1) {
+          message.textContent = "🎆 ¡Feliz Año Nuevo! 🥂";
+      } else {
+          message.textContent = "✨ ¡Felices fiestas! 🎉";
+      }
+  } else {
+      document.getElementById("holiday-banner").style.display = "none";
+  }
 });
 
 

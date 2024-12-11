@@ -1,3 +1,20 @@
+// Función para cargar el archivo JSON
+async function cargarContenido1() {
+  try {
+    // Realiza la solicitud al archivo JSON
+    const respuesta = await fetch("json/contenido.json");
+    const datos = await respuesta.json();
+
+    // Asigna los datos a las etiquetas correspondientes
+    document.getElementById("tprin").textContent = datos.tprin;
+    document.getElementById("btnf").textContent = datos.btnf;
+  } catch (error) {
+    console.error("Error al cargar el contenido:", error);
+  }
+}
+// Llama a la función al cargar la página
+cargarContenido1();
+
 async function filterData() {
   const dateISO = document.getElementById("filter-date").value; // Formato ISO (YYYY-MM-DD)
   const resultsDiv = document.getElementById("results");
@@ -69,20 +86,3 @@ function formatDateForBackend(dateISO) {
   fechaFormat = fecha.toLocaleDateString("es-ES");
   return fechaFormat;
 }
-
-// Función para cargar el archivo JSON
-async function cargarContenido() {
-  try {
-    // Realiza la solicitud al archivo JSON
-    const respuesta = await fetch("json/contenido.json");
-    const datos = await respuesta.json();
-
-    // Asigna los datos a las etiquetas correspondientes
-    document.getElementById("tprin").textContent = datos.tprin;
-    document.getElementById("btnf").textContent = datos.btnf;
-  } catch (error) {
-    console.error("Error al cargar el contenido:", error);
-  }
-}
-// Llama a la función al cargar la página
-cargarContenido();
